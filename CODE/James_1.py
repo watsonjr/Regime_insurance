@@ -11,7 +11,7 @@ import parameters
 
 "C VALUES FOR SIMULATION"
 c_vals = [ 1 ,   1.95,  2.45,  3.1   ]
-newSim = [False, False, False, False ]
+newSim = [True, True, True, True ]
 
 "PLOT OPTIONS"
 golden  = np.sqrt(2)
@@ -32,13 +32,12 @@ for i in range(len(c_vals)):
     x0 = params_dict['INIT_X']
     params_dict['c'] = c_vals[i]
     simTag = str(c_vals[i]).replace('.','')
+
     if newSim[i] == True:
         x_array, i_array, y_array, util_array, pi_array = fn.run_model_flickering(x0,params_dict)
         np.save('../DATA/envData'+simTag,x_array)
         np.save('../DATA/adapData'+simTag,y_array)
         
-    
-    
     "lOAD PLOT DATA"
     env_array = np.load('../DATA/envData'+simTag+'.npy')
     adap_array = np.load('../DATA/adapData'+simTag+'.npy')
@@ -52,12 +51,12 @@ for i in range(len(c_vals)):
     AX[i].set_ylabel('Environmental state, $x$')
     AX[i].set_xlabel('Time')
     AX[i].set_ylim((-.05,20.05))
-    AX[i].set_title(str(frac*100)[0:4]+"%")
+    AX[i].set_title(str(frac*100)[0:4]+"%",y=0.85)
     
     t_start = 0;
     t_end = np.min((2000,params_dict['NUMSTEPS']));
     AX[i].set_xlim(t_start,t_end);
-ax4.legend(loc='upper right')
+#ax4.legend(loc='upper right')
 
 fig1.text(0.07, .87, 'a',weight='bold', fontsize = 16)
 fig1.text(.495, .87, 'b', weight='bold',fontsize = 16)
