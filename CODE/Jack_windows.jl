@@ -37,7 +37,7 @@ using CSV
 using DataFrames
 
 # load probabilities 
-df = CSV.read("DATA/Data_prob.csv",DataFrame)
+df = CSV.read("../DATA/Data_prob.csv",DataFrame)
 
 # calcualte utility 
 utils_with = broadcast(p -> utils(p,λ,ρ,cv,cf,ϕ), df.p) 
@@ -49,4 +49,4 @@ df.utils_without .= utils_without
 df.utility_alternative .= Ū 
 
 # save data frame 
-CSV.write("DATA/Data_utils.csv",df)
+CSV.write("../DATA/Data_utils.csv",df)
