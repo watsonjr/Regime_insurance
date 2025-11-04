@@ -68,7 +68,10 @@ ax1.set_xlabel('Value of c (bifurcation parameter)')
 #fig1.text(.495, .46, 'd', weight='bold',fontsize = 16)
 
 "SAVE FIGS"
+data = np.vstack((c_vals,frac)).transpose()
 save = True
 if save == True:
     fig1.savefig("../FIGS/prob_regimeIII.pdf",bbox_inches='tight')
     fig1.savefig("../FIGS/prob_regimeIII.png", bbox_inches='tight',dpi=1500)
+    np.savetxt('../DATA/Data_prob.csv', data, delimiter=',', fmt='%s', header='c,p', comments='')
+
