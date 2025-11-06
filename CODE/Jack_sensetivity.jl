@@ -43,5 +43,5 @@ end
 
 open = DataFrame(param = [k for k in keys(open)], sensetivity = open)
 close = DataFrame(param = [k for k in keys(close)], sensetivity = close)
-CSV.write("DATA/sensetivity_window_open_prob.csv",open)
-CSV.write("DATA/sensetivity_window_close_prob.csv",close)
+CSV.write("../DATA/sensetivity_window_open_prob.csv",open)
+CSV.write("../DATA/sensetivity_window_close_prob.csv",close)
