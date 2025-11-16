@@ -10,7 +10,8 @@ import parameters
 #%%
 
 "C VALUES FOR SIMULATION"
-c_vals = [ 1 ,   1.95,  2.45,  3.1   ]
+#c_vals = [ 1 ,   1.95,  2.45,  3.1   ]
+r_vals = [ 1 ,   0.75,  0.4,  0.1 ]
 newSim = [True, True, True, True ]
 
 "PLOT OPTIONS"
@@ -26,12 +27,12 @@ ax4 = fig1.add_subplot(224)
 AX = [ax1,ax2,ax3,ax4]
 
 "RUN SIMULATIONS ONLY FOR CASES MARKED TRUE ABOVE"
-for i in range(len(c_vals)):
+for i in range(len(r_vals)):
     importlib.reload(parameters)
     from parameters import params_dict
     x0 = params_dict['INIT_X']
-    params_dict['c'] = c_vals[i]
-    simTag = str(c_vals[i]).replace('.','')
+    params_dict['r'] = r_vals[i]
+    simTag = str(r_vals[i]).replace('.','')
 
     if newSim[i] == True:
         x_array, i_array, y_array, util_array, pi_array = fn.run_model_flickering(x0,params_dict)
@@ -46,7 +47,6 @@ for i in range(len(c_vals)):
     frac = len(np.where(env_array<1.5)[0]) / len(env_array)
 
     "MAKE FIGS"
-    #AX[i].plot(adap_array,label='Adaptation',color='k', linewidth = linWidth,alpha=opac)
     AX[i].plot(env_array,label='Environment',color='#005745', linewidth = linWidth,alpha = opac)
     AX[i].set_ylabel('Environmental state, $x$')
     AX[i].set_xlabel('Time')

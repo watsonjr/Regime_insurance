@@ -11,8 +11,9 @@ import parameters
 
 "C VALUES FOR SIMULATION"
 #c_vals = [ 1 ,   1.95,  2.45,  3.1   ]
-c_vals = np.linspace(0.5,3.5,50)
-frac = np.zeros(len(c_vals))
+#c_vals = np.linspace(0.5,3.5,50)
+r_vals = np.linspace(1.2,0.1,50)
+frac = np.zeros(len(r_vals))
 
 "PLOT OPTIONS"
 golden  = np.sqrt(2)
@@ -27,12 +28,13 @@ ax1 = fig1.add_subplot(111)
 #AX = [ax1,ax2,ax3,ax4]
 
 "RUN SIMULATIONS ONLY FOR CASES MARKED TRUE ABOVE"
-for i in range(len(c_vals)):
+for i in range(len(r_vals)):
     print(i)
     importlib.reload(parameters)
     from parameters import params_dict
     x0 = params_dict['INIT_X']
-    params_dict['c'] = c_vals[i]
+    params_dict['r'] = r_vals[i]
+    #params_dict['c'] = c_vals[i]
     #simTag = str(c_vals[i]).replace('.','')
     
     x_array, i_array, y_array, util_array, pi_array = fn.run_model_flickering(x0,params_dict)
@@ -58,7 +60,7 @@ for i in range(len(c_vals)):
     t_end = np.min((2000,params_dict['NUMSTEPS']));
     #AX[i].set_xlim(t_start,t_end);
 #ax4.legend(loc='upper right')
-ax1.plot(c_vals,frac,color='#005745', linewidth = linWidth,alpha = opac)
+ax1.plot(r_vals,frac,color='#005745', linewidth = linWidth,alpha = opac)
 ax1.set_ylabel('Fraction of time spent in Regime III')
 ax1.set_xlabel('Value of c (bifurcation parameter)')
 
@@ -68,7 +70,7 @@ ax1.set_xlabel('Value of c (bifurcation parameter)')
 #fig1.text(.495, .46, 'd', weight='bold',fontsize = 16)
 
 "SAVE FIGS"
-data = np.vstack((c_vals,frac)).transpose()
+data = np.vstack((r_vals,frac)).transpose()
 save = True
 if save == True:
     fig1.savefig("../FIGS/prob_regimeIII.pdf",bbox_inches='tight')

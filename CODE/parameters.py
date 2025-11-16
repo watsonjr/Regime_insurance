@@ -25,7 +25,6 @@ K = 10
 # max_c = 3.0
 # c_array = np.linspace(min_c,max_c,NUMSTEPS)
  
-
 h = 1 #half saturation constant for type 3 fn response
 
 ###! white noise (drawn from a Gaussian distribution)
@@ -37,7 +36,7 @@ sigma = 0.0
 ###! red noise parameters
 i0 = 0.01# initial red noise
 mu_i = 0 #mean red noise
-beta = 0.07 #variance red noise
+beta = 0.04 # 0.07 is default #variance red noise
 T = 30/dt #timescale of red noise
 
 
@@ -60,7 +59,7 @@ l_low = .001
 l_mid = .01
 l_high = .1
 c_sweep = np.linspace(0.25,3.5,100)
-c = 1
+c = 1.25
 
 params_dict = {'dt':dt,
         'INIT_X':x0,
