@@ -1,9 +1,6 @@
 
-
-
-λ = 1.5 # risk aversion 
+λ = 2.0 # risk aversion 
 ρ = 0.9 # claims - losses correlation
 cv = 0.0 # variable costs 
-cf = 0.01 # fixed insurance costs
-ϕ = 0.5 # fraction if income lost in low regime 
-Ū = 1.5 # alternative utility 
+cf = 0.05 # fixed insurance costs
+Ū = 0.5 # alternative utility 

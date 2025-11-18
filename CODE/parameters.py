@@ -60,11 +60,16 @@ l_mid = .01
 l_high = .1
 c_sweep = np.linspace(0.25,3.5,100)
 c = 1.25
+r_sweep = np.linspace (0.01,1.5,1000)
 
+# price parameters for model with income
+price = 1.0
+costs = 0.1
 params_dict = {'dt':dt,
         'INIT_X':x0,
         'NUMSTEPS': NUMSTEPS, 
         'r': r, 
+        'r_sweep':r_sweep,
         'K': K,
         'c': c,
         'c_sweep':c_sweep,
@@ -84,5 +89,7 @@ params_dict = {'dt':dt,
         'n':n,
         'm_tr':m_tr,
         'n_tr':n_tr,
-        'a_tr':a_tr
+        'a_tr':a_tr,
+        'price':price,
+        'costs':costs
          }

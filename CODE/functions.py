@@ -342,3 +342,12 @@ def flickering_utilSI(PARS):
     avg_util7 = np.average(util7)
     
     return  avg_pi, avg_util1, avg_util2, avg_util3, avg_util4, avg_util5,avg_util6, avg_util7
+
+
+def income(x,P):
+    c = P['c']
+    h = P['h']
+    price = P['price']
+    costs = P['costs']
+    H = c*x**2/(x**2 + h**2)
+    return price*H - costs*c

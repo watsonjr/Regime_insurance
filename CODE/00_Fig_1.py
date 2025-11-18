@@ -11,7 +11,7 @@ h = 1
 r = 1
 c = 1.25
 
-r_Vals = np.linspace (0.01,1.1,10000)
+r_Vals = np.linspace (0.01,1.1,1000)
 eq = np.zeros((len(r_Vals),4))
 
 #c_Vals = np.linspace(0,4,num=10000)
