@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 
 #======================= p
 # Load data
-df = pd.read_csv("DATA/Data_utils.csv")
+df = pd.read_csv("../DATA/Data_utils.csv")
 
 # Create figure
 plt.figure(figsize=(6, 6))  # Good for 1-column journal width
@@ -34,13 +34,13 @@ plt.grid(True, linestyle="--", alpha=0.7)
 plt.tight_layout()
 
 # Save high-resolution figure
-plt.savefig("FIGS/utility_plot_p.png", dpi=300)
+plt.savefig("../FIGS/utility_plot_p.png", dpi=300)
 
 
 
 #======================= c
 # Load data
-df = pd.read_csv("DATA/Data_utils.csv")
+df = pd.read_csv("../DATA/Data_utils.csv")
 
 # Create figure
 plt.figure(figsize=(6, 6))  # Good for 1-column journal width
@@ -65,7 +65,7 @@ plt.grid(True, linestyle="--", alpha=0.7)
 plt.tight_layout()
 
 # Save high-resolution figure
-plt.savefig("FIGS/utility_plot_c.png", dpi=300)
+plt.savefig("../FIGS/utility_plot_c.png", dpi=300)
 
 # Show plot
 plt.show()

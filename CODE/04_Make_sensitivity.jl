@@ -24,7 +24,7 @@ function window_of_opportunity(pars)
     return p0, pend
 end
 
-include("../CODE/jack_parameters.jl")
+include("./parameters_windows.jl")
 pars = ComponentArray((λ = λ, ρ = ρ, cv = cv, cf = cf, ϕ = ϕ , Ū = Ū ))
 
 open = ComponentArray((λ = 1.0,ρ = 0.9,cv = 0.0,cf = 0.02,ϕ = 0.5, Ū = 1.5 ))

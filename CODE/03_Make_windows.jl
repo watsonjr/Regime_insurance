@@ -31,13 +31,14 @@ function coverage(p,λ,ρ,cv,y_high,y_low,Ū )
     return coverage(p,λ,ρ,cv)
 end 
 
-include("../CODE/parameters_windows.jl")
+include("./parameters_windows.jl")
 
 using CSV
 using DataFrames
 data = ARGS[1]
+
 # load probabilities 
-df = CSV.read("DATA/$data.csv",DataFrame)
+df = CSV.read("../DATA/$data.csv",DataFrame)
 println(names(df))
 print(occursin.("income_high_sliding",names(df)))
 income_high = df[:,occursin.("income_high_sliding",names(df))][:,1]
@@ -55,4 +56,4 @@ df.utils_without .= utils_without
 df.utility_alternative .= Ū 
 
 # save data frame 
-CSV.write("DATA/Data_utils.csv",df)
+CSV.write("../DATA/Data_utils.csv",df)
